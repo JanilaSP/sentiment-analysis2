@@ -1,0 +1,42 @@
+# Define your own labeled sentiment words
+word_sentiment = {
+    "terrible": 0,
+    "horrible": 0,
+    "bad": 0,
+    "awful": 0,
+    "worst": 0,
+    "boring": 0,
+    "excellent": 1,
+    "great": 1,
+    "brilliant": 1,
+    "fantastic": 1,
+    "amazing": 1,
+    "masterpiece": 1
+}
+
+# Function to predict sentiment based on keyword matches
+def predict_dict_sentiment(text):
+    # Clean and tokenize input
+    words = re.findall(r'\b\w+\b', text.lower())
+
+    # Collect known sentiment scores
+    sentiments = [word_sentiment[word] for word in words if word in word_sentiment]
+
+    if not sentiments:
+        return "Neutral"
+
+    # Majority voting or averaging
+    avg = sum(sentiments) / len(sentiments)
+
+    return "Positive" if avg > 0.5 else "Negative"
+
+# --- User interaction ---
+while True:
+    user_input = input("Enter a sentence to analyze its sentiment (or type 'exit' to quit): ")
+
+    if user_input.lower() == 'exit':
+        print("Exiting sentiment analyzer. Goodbye!")
+        break
+
+    sentiment = predict_dict_sentiment(user_input)
+    print(f"Predicted Sentiment: {sentiment}\n")
