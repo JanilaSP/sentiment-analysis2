@@ -1,0 +1,11 @@
+Enter a sentence to analyze its sentiment (or type 'exit' to quit): hai there
+Predicted Sentiment: Neutral
+
+Enter a sentence to analyze its sentiment (or type 'exit' to quit): that was just amazing
+Predicted Sentiment: Positive
+
+Enter a sentence to analyze its sentiment (or type 'exit' to quit): Whew!The worst is behind us.
+Predicted Sentiment: Negative
+
+Enter a sentence to analyze its sentiment (or type 'exit' to quit): exit
+Exiting sentiment analyzer. Goodbye!
